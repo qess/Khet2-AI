@@ -265,36 +265,6 @@ def ai_tournament(path_to_ai1, path_to_ai2, num_positions, time_per_move):
         print((one_points + .0)/games, one_points, "/", games)
 
 
-# Run a tournament between the two programs and report the results.
-def ai_one_round(path_to_ai1, path_to_ai2, num_positions, time_per_move):
-    gen = PositionGenerator()
-    one_points = 0
-    games = 0
-    # Generate a (probably balanced) initial position.
-    balanced = False
-    while not balanced:
-        pos = gen.generate()
-        balanced = gen.check_balanced(pos, path_to_ai1, path_to_ai2, time_per_move)
-
-    print(pos)
-
-    # The AI's much play both sides of this position.
-    score = ai_vs_ai(path_to_ai1, path_to_ai2, time_per_move, pos)
-    if score > 0:
-        one_points += 1
-    elif score == 0:
-        one_points += 0.5
-    games += 1
-
-    score = ai_vs_ai(path_to_ai2, path_to_ai1, time_per_move, pos)
-    if score < 0:
-        one_points += 1
-    elif score == 0:
-        one_points += 0.5
-    games += 1
-
-    print((one_points + .0)/games, one_points, "/", games)
-
 # Usage:
 # runner.py human ai path-to-khet-ai time-per-move (human is silver vs ai)
 # runner.py ai human path-to-khet-ai time-per-move (human is red vs ai)
@@ -304,7 +274,7 @@ if __name__ == "__main__":
     num_args = len(sys.argv)
     if num_args == 5:
         if sys.argv[1] == "tournament":
-            ai_tournament(sys.argv[2], sys.argv[3], 1000, sys.argv[4])
+            ai_tournament(sys.argv[2], sys.argv[3], sys.argv[4],sys.argv[5] )
         else:
             human_first = sys.argv[1] == "human"
             human_vs_ai(human_first, sys.argv[3], sys.argv[4])
