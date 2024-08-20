@@ -204,7 +204,7 @@ def ai_vs_ai(path_to_ai1, path_to_ai2, time_per_move, start_pos = "standard"):
         while not terminal:
             movecount = movecount +1
             ai_move = ai1.search(time_per_move)
-            print(movecount+" AI1:", ai_move)
+            print(str(movecount)+" AI1:", ai_move)
             if ai1.no_moves_available:
                 if ai1.mate_detected:
                     one_win = ai1.latest_eval > 0
@@ -217,7 +217,7 @@ def ai_vs_ai(path_to_ai1, path_to_ai2, time_per_move, start_pos = "standard"):
 
             ai_move = ai2.search(time_per_move)
             movecount = movecount +1
-            print(movecount+" AI2:", ai_move)
+            print(str(movecount)+" AI2:", ai_move)
             if ai2.no_moves_available:
                 if ai2.mate_detected:
                     one_win = ai2.latest_eval > 0
