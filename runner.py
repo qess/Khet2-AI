@@ -280,7 +280,7 @@ if __name__ == "__main__":
             human_vs_ai(human_first, sys.argv[3], sys.argv[4])
     elif num_args == 6:
         if sys.argv[1] == "tournament":
-            ai_tournament(sys.argv[2], sys.argv[3], Int(sys.argv[4]),sys.argv[5] )
+            ai_tournament(sys.argv[2], sys.argv[3], int(sys.argv[4]),sys.argv[5] )
 
         ai_vs_ai(sys.argv[3], sys.argv[4], sys.argv[5])
     else:
